@@ -1,20 +1,18 @@
-const btn    = document.getElementById("submit_btn")
-const result = document.getElementById("result")
+var btn    = document.getElementById("submit_btn")
+var result = document.getElementById("result")
 
-function gen_req_path() {
-    var path = 'make?'
-    var args = []
+function make_body() {
+    var body = {}
 
-    const inputs = document.getElementsByTagName("input")
-    console.log(inputs);
+    var inputs = document.getElementsByTagName("input")
     for (var i = 0; i < inputs.length; i++) {
-        const elem = inputs[i];
+        var elem = inputs[i];
 
-        var text = elem.value === "" ? elem.placeholder : elem.value
-        args.push(i + "=" + text);
+        var text = elem.value === "" ? elem.placeholder : elem.value;
+        body[i] = text;
     }
 
-    return path + args.join("&");
+    return JSON.stringify(body);
 }
 
 function calculate_duration(begin_time) {
@@ -38,8 +36,38 @@ function submit() {
         }
     };
 
-    xhttp.open("GET", gen_req_path(), true);
-    xhttp.send();
+    save_input()
+    xhttp.open("POST", "/make", true);
+    xhttp.send(make_body());
+}
+
+function restore_input() {
+    var item = "input";
+
+    if (docCookies.hasItem(item)) {
+        var stored_input = JSON.parse(docCookies.getItem(item));
+
+        var inputs = document.getElementsByTagName("input")
+        for (var i = 0; i < inputs.length; i++) {
+            var elem = inputs[i];
+            elem.value = stored_input[i] || "";
+        }
+    }
+    
+}
+
+function save_input() {
+    var obj = {}
+
+    var inputs = document.getElementsByTagName("input")
+    for (var i = 0; i < inputs.length; i++) {
+        var elem = inputs[i];
+
+        var text = elem.value;
+        obj[i] = text;
+    }
+    docCookies.setItem("input", JSON.stringify(obj));
 }
 
 btn.onclick = submit;
+restore_input()
