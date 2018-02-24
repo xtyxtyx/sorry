@@ -11,7 +11,9 @@ end
 
 get "/make" do
   sentences = []
-  9.times do |n|
+
+  x = Config::TEMPLATE_SENTENCES
+  x.times do |n|
     sentences[n] = (params[n.to_s] || "")
   end
 
@@ -28,3 +30,7 @@ end
 
 set :static, true
 set :public_folder, Dir.pwd + '/public'
+
+
+set :port, Config::SERVER_PORT
+set :bind, Config::SERVER_IP

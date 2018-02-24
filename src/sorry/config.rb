@@ -8,6 +8,7 @@ module Config
 
     TEMPLATE_VIDEO     = config["template_video"]
     TEMPLATE_SUBTITLE  = config["template_subtitle"]
+    TEMPLATE_SENTENCES = config["template_sentences"].to_i
 
     SERVER_PORT        = config["server_port"].to_i
     SERVER_IP          = config["server_ip"]
