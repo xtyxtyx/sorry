@@ -29,6 +29,9 @@ bundle install
 # 运行
 ruby src/sorry.rb
 
+# 生产环境
+APP_ENV=production ruby src/sorry.rb
+
 ```
 
 ### 增加文件描述符数量限制

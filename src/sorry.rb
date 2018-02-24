@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 
 require_relative "./sorry/make_gif.rb"
 require_relative "./sorry/config.rb"
@@ -9,12 +10,14 @@ end
 
 
 
-get "/make" do
+post "/make" do
   sentences = []
+
+  json = JSON.parse(request.body.read)
 
   x = Config::TEMPLATE_SENTENCES
   x.times do |n|
-    sentences[n] = (params[n.to_s] || "")
+    sentences[n] = (json[n.to_s] || "")
   end
 
   Sorry.render_gif(sentences)

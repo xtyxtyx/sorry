@@ -19,3 +19,5 @@ temp_folder: temp/
 
 # means public/cache/
 cache_folder: cache/
+
+max_jobs: 8

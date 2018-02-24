@@ -17,4 +17,6 @@ module Config
 
     TEMP_FOLDER        = config["temp_folder"]
     CACHE_FOLDER       = config["cache_folder"]
+
+    MAX_JOBS           = config['max_jobs']
 end

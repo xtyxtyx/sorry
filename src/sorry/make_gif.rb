@@ -1,7 +1,9 @@
 require 'erb'
 require 'digest'
+require "thread"
 
 require_relative './cache.rb'
+require_relative './config.rb'
 
 module Sorry
 
@@ -11,15 +13,28 @@ module Sorry
 		Digest::MD5.hexdigest sentences.to_s
 	end
 
+	######################
+
+	$jobs  = 0
+	$mutex = Mutex.new
+
+	def Sorry.ffmpeg_avaliable?
+		$jobs < Config::MAX_JOBS
+	end
+
 	def Sorry.make_gif_with_ffmpeg(sentences, filename)
+		$mutex.lock
+			$jobs += 1
+		$mutex.unlock
+
 		ass_path = render_ass(sentences, filename)
 		path =  Config::TEMP_FOLDER + filename
 
 		cmd = <<-CMD
 			ffmpeg \
 			-i #{Config::TEMPLATE_VIDEO} \
-			-r 7 \
-			-vf ass=#{ass_path},scale=500:-1 \
+			-r 6 \
+			-vf ass=#{ass_path},scale=300:-1 \
 			-y \
 			#{path}
 		CMD
@@ -27,8 +42,15 @@ module Sorry
 		pid = spawn(cmd, [:out, :err]=>"/dev/null")
 		Process.wait pid
 
+		$mutex.lock
+			$jobs -= 1
+		$mutex.unlock
+		p $jobs
+
 		path
 	end
+
+	################################
 
 	def Sorry.render_ass(sentences, filename)
 		path = Config::TEMP_FOLDER + filename + ".ass"
@@ -44,10 +66,15 @@ module Sorry
 		filename = calculate_hash(sentences) + ".gif"
 
 		if !$cache.file_exists?(filename)
-			path = make_gif_with_ffmpeg(sentences, filename)
-
-			$cache.add_file(path)
-			File.delete(path)
+			if ffmpeg_avaliable?
+				path = make_gif_with_ffmpeg(sentences, filename)
+				$cache.add_file(path)
+				File.delete(path)
+			else
+				return <<-HTML
+				<p>服务器忙！等下说不定就能用了⏳</p>
+				HTML
+			end
 		end
 
 		<<-HTML
