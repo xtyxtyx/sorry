@@ -27,6 +27,10 @@ gem install bundler
 # [可选] 使用国内镜像
 gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 
+# [可选] Linux服务器一般需要安装中文字体
+apt install language-pack-zh-hans
+apt install ttf-wqy-microhei 
+
 # 安装依赖
 bundle install
 
