@@ -45,7 +45,7 @@ module Sorry
 		$mutex.lock
 			$jobs -= 1
 		$mutex.unlock
-		p "[ Current jobs ] #{$jobs}"
+		puts "[ Current jobs ] #{$jobs}"
 
 		path
 	end
