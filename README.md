@@ -1,5 +1,9 @@
 # sorry 为所欲为
 
+![图片](https://dn-coding-net-production-pp.qbox.me/f5beb81a-abf9-424b-a92e-625b008d30b7.gif)
+
+## 代码库
+
 ```
 ├── Gemfile
 ├── Gemfile.lock
@@ -34,13 +38,6 @@ APP_ENV=production ruby src/sorry.rb
 
 ```
 
-### 增加文件描述符数量限制
-如果运行在Linux服务器上，可能需要增加文件描述符限制
-
-// 不然会定期地挂掉
-```
-ulimit -n 65536
-```
 
 ## TODO
 
@@ -48,9 +45,3 @@ ulimit -n 65536
 - [ ] 定时删除缓存，不然有多少硬盘空间也不够用
 - [ ] 写个脚本，自动配置新的gif
 - [ ] 写测试
-
-## 话说后端语言不是crystal么？
-
-crystal现在还在beta阶段，实际使用时会有一些问题
-
-所以用ruby重写了
