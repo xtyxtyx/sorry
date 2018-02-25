@@ -20,7 +20,6 @@ post "/make" do
     sentences[n] = (json[n.to_s] || "")
   end
 
-  p "render!"
   Sorry.render_gif(sentences)
 end
 
