@@ -38,6 +38,14 @@ APP_ENV=production ruby src/sorry.rb
 
 ```
 
+## 定时清除缓存
+```
+crontab -e
+
+# 在每小时的第10分钟 清除700分钟以前的gif
+
+10  *  *   *   *     find /root/sorry/public/cache -name '*.gif' -mmin +700  -exec rm {} \;       
+```
 
 ## TODO
 
