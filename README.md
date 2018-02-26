@@ -64,7 +64,7 @@ public/index.html
 resource/sorry.mp4
 resource/sorry.erb
 ```
-
+其中
 ```
 index.html  按照句子的多少删掉或者增加<input>即可
 sorry.mp4   替换成新视频
@@ -82,7 +82,7 @@ sorry.erb   替换成新的字幕模板
 
 现在这个网站就可以制作新的gif了🖼️
 
-如果你不熟悉aegisub的使用，也可以发个issue，同时附上模板视频
+如果你不熟悉aegisub的使用，也可以发个issue，同时附上模板视频🎞️
 
 ## TODO
 
