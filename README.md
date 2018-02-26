@@ -71,7 +71,7 @@ sorry.mp4   替换成新视频
 sorry.erb   替换成新的字幕模板
 ```
 
-### sorry.erb
+### 字幕模板sorry.erb
 首先使用aegisub为模板视频创建字幕，保存为sorry.ass（aegisub教程可以看这个 https://tieba.baidu.com/p/1360405931 ）
 ![图片](https://dn-coding-net-production-pp.qbox.me/56a213df-9ff7-41e0-9b6c-96b1f0fe2cb6.png)
 
@@ -80,7 +80,7 @@ sorry.erb   替换成新的字幕模板
 
 最后保存为sorry.erb
 
-现在这个网站就可以制作新的gif了🖼️
+现在这个网站就可以制作新的gif了
 
 如果你不熟悉aegisub的使用，也可以发个issue，同时附上模板视频🎞️
 
