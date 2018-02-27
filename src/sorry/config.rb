@@ -5,6 +5,7 @@ module Config
 
     PAGE_INDEX         = config["page_index"]
     PAGE_404           = config["page_404"]
+    PAGE_INVALID      = config["page_invalid"]
 
     TEMPLATE_VIDEO     = config["template_video"]
     TEMPLATE_SUBTITLE  = config["template_subtitle"]

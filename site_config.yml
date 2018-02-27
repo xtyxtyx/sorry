@@ -1,8 +1,9 @@
 title: Sorry! 在线生成
 header: 在线生成Sorry,动图
 
-page_index: public/index.html
-page_404:   public/404.html
+page_index:   public/index.html
+page_404:     public/404.html
+page_invalid: public/invalid.html
 
 template_video:     resource/sorry.mp4
 template_subtitle:  resource/sorry.erb

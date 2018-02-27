@@ -23,10 +23,12 @@ post "/make" do
   Sorry.render_gif(sentences)
 end
 
-
-
 not_found do
-  send_file Config::PAGE_404
+  if %r<^/cache/.+> =~ request.path_info
+    send_file Config::PAGE_INVALID
+  else
+    send_file Config::PAGE_404
+  end
 end
 
 
