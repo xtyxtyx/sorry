@@ -47,6 +47,14 @@ APP_ENV=production ruby src/sorry.rb
 
 ```
 
+### [可选] 使用PM2监控&自动重启
+
+```
+npm install pm2 -g
+
+pm2 start process.yml --env production
+```
+
 ## 定时清除缓存
 ```
 crontab -e
