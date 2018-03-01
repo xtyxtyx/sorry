@@ -1,0 +1,17 @@
+# Config file for pm2
+
+apps:
+  - script:    ./src/sorry.rb
+    max_restarts: 10
+  
+    instances: 1
+    exec_mode: fork
+    max_memory_restart: 2G
+
+    error_file: ./err.log
+    out_file:   ./out.log
+
+    watch: false
+
+    env_production:
+      APP_ENV: production

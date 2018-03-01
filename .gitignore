@@ -2,3 +2,7 @@
 /lib/
 /bin/
 /.vscode/
+out-0.log
+err-0.log
+*.gif
+*.ass
