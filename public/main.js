@@ -33,7 +33,7 @@ function submit() {
             if (this.status == 200) {
                 result.innerHTML = this.responseText;
             } else {
-                result.innerHTML = "<p>请求出错！❌</p>";
+                result.innerHTML = "<p>请求出错！😵</p>";
             }
             btn.innerHTML = "生成";
             btn.disabled = false;
