@@ -30,10 +30,10 @@ function submit() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
-            if (this.status == 200) {
-                result.innerHTML = this.responseText;
-            } else {
+            if (this.status == 521 || this.status == 404) {
                 result.innerHTML = "<p>请求出错！😵</p>";
+            } else {
+                result.innerHTML = this.responseText;
             }
             btn.innerHTML = "生成";
             btn.disabled = false;
