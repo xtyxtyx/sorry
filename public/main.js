@@ -26,7 +26,6 @@ function submit() {
     var begin_time = Date.now();
 
     var xhttp = new XMLHttpRequest();
-    xhttp.timeout = 3 * 1000;
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
