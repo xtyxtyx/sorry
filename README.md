@@ -53,6 +53,15 @@ APP_ENV=production ruby src/sorry.rb
 npm install pm2 -g
 
 pm2 start process.yml --env production
+
+# [可选] 非root用户使用80端口
+sudo apt-get install authbind
+sudo touch /etc/authbind/byport/80
+sudo chown %user% /etc/authbind/byport/80
+sudo chmod 755 /etc/authbind/byport/80
+
+alias pm2='authbind --deep pm2'
+authbind --deep pm2 update
 ```
 
 ## 定时清除缓存
