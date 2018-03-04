@@ -45,7 +45,10 @@ post "/:template_name/make" do
   Sorry.render_gif(template_name, sentences)
 end
 
-
+# For compability
+post "/make" do
+  "<p>请刷新或清空浏览器缓存</p>"
+end
 
 not_found do
   if %r<^/cache/.+> =~ request.path_info
