@@ -7,9 +7,7 @@ module Config
     PAGE_404           = config["page_404"]
     PAGE_INVALID      = config["page_invalid"]
 
-    TEMPLATE_VIDEO     = config["template_video"]
-    TEMPLATE_SUBTITLE  = config["template_subtitle"]
-    TEMPLATE_SENTENCES = config["template_sentences"].to_i
+    TEMPLATE_FOLDER    = config["template_folder"]
 
     SERVER_PORT        = config["server_port"].to_i
     SERVER_IP          = config["server_ip"]

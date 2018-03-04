@@ -32,6 +32,6 @@ class LocalCache < Cache
     end
 
     def get_url(filename)
-        @temp_folder + filename
+        "/" + @temp_folder + filename
     end
 end
