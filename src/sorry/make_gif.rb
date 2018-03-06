@@ -43,12 +43,12 @@ module Sorry
 		pid = spawn(cmd, [:out, :err]=>"/dev/null")
 		Process.wait pid
 
+		gif_path		
+	ensure
 		$mutex.lock
 			$jobs -= 1
 		$mutex.unlock
 		puts "[ Current jobs ] #{$jobs}"
-
-		gif_path
 	end
 
 	################################

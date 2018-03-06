@@ -42,6 +42,11 @@ post "/:template_name/make" do
     i += 1
   end
 
+  path_of_template_dir = "public/#{template_name}/"
+  if ! Dir.exist?(path_of_template_dir)
+    halt 404
+  end
+
   Sorry.render_gif(template_name, sentences)
 end
 
