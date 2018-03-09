@@ -92,6 +92,24 @@ module Sorry
 	end
 
 
+	def render_gif_api(template_name, sentences)
+		filename = calculate_hash(sentences) + ".gif"
+
+		if !$cache.file_exists?(filename)
+			if ffmpeg_avaliable?
+				path = make_gif_with_ffmpeg(template_name, sentences, filename)
+				$cache.add_file(path)
+				File.delete(path)
+			else
+				return 503, ""
+			end
+		end
+
+		return 200, $cache.get_url(filename)
+	end
+
+
 
 	module_function :render_gif
+	module_function :render_gif_api
 end
