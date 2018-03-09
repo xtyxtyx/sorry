@@ -1,21 +1,16 @@
 
 ![图片](https://dn-coding-net-production-pp.qbox.me/f5beb81a-abf9-424b-a92e-625b008d30b7.gif)
 
-## 代码库
+另有[python版](https://github.com/East196/sorrypy)
 
+# 部署指南
+
+## 使用Docker
 ```
-├── Gemfile
-├── Gemfile.lock
-├── LICENSE
-├── public                  # 静态文件目录
-├── README.md
-├── resource                # 模板文件目录，里边存放用于生成gif的文件
-├── site_config.yml         # 站点配置文件
-├── src                     # 这里就是源代码
-└── temp                    # 把临时文件安放在这里
+docker build -t sorry .
 ```
 
-## 部署
+## 手工部署
 首先，机器上得安装好ruby :gem:
 
 接下来：
@@ -62,6 +57,10 @@ sudo chmod 755 /etc/authbind/byport/80
 
 alias pm2='authbind --deep pm2'
 authbind --deep pm2 update
+
+# [可选] 定时重启服务
+crontab -e
+10   22  *   *   *     pm2 start sorry       
 ```
 
 ## 定时清除缓存
