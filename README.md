@@ -1,13 +1,26 @@
 
 ![图片](https://dn-coding-net-production-pp.qbox.me/f5beb81a-abf9-424b-a92e-625b008d30b7.gif)
+# 代码库
 
-另有[python版](https://github.com/East196/sorrypy)
+```
+├── Gemfile
+├── Gemfile.lock
+├── LICENSE
+├── public                  # 静态文件目录
+├── README.md
+├── resource                # 模板文件目录，里边存放用于生成gif的文件
+├── site_config.yml         # 站点配置文件
+├── src                     # 这里就是源代码
+└── temp                    # 把临时文件安放在这里
+```
+另有[python版](https://github.com/East196/sorrypy)，由@East196编写
 
 # 部署指南
 
 ## 使用Docker
 ```
 docker build -t sorry .
+docker run --rm -it -p 4567:4567 sorry
 ```
 
 ## 手工部署
@@ -72,21 +85,22 @@ crontab -e
 10  *  *   *   *     find /root/sorry/public/cache -name '*.gif' -mmin +700  -exec rm {} \;       
 ```
 
-## 适配新Gif
-目前，想要适配新的gif,需要改动3个文件
+# 提交模板
+你可以把自己的模板添加到网站中，然后批量生产GIF😏
+
+添加模板需要准备以下文件
+
 ```
-public/index.html
-resource/sorry.mp4
-resource/sorry.erb
-```
-其中
-```
-index.html  按照句子的多少删掉或者增加<input>即可
-sorry.mp4   替换成新视频
-sorry.erb   替换成新的字幕模板
+template.mp4  # 模板视频
+template.erb  # 字幕模板
+example.png   # 展示图片
 ```
 
-### 字幕模板sorry.erb
+如果你是github用户，可以发个issue
+
+也可以[发送邮件](mailto:xty50337@hotmail.com)
+
+# 制作字幕模板template.erb
 首先使用aegisub为模板视频创建字幕，保存为sorry.ass（aegisub教程可以看这个 https://tieba.baidu.com/p/1360405931 ）
 ![图片](https://dn-coding-net-production-pp.qbox.me/56a213df-9ff7-41e0-9b6c-96b1f0fe2cb6.png)
 
