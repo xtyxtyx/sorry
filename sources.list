@@ -1,0 +1,4 @@
+deb http://mirrors.ustc.edu.cn/debian stretch main
+deb http://mirrors.ustc.edu.cn/debian stretch-updates main
+deb http://mirrors.ustc.edu.cn/debian-security stretch/updates main
+
