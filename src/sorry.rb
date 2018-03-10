@@ -9,6 +9,11 @@ get "/" do
   redirect to('/sorry/')
 end
 
+# 兼容旧版
+get "/index.html" do
+  redirect to('/sorry/')
+end
+
 # 跳转到/<template_name>/
 get "/:template_name" do
   template_name = params['template_name']
@@ -27,7 +32,6 @@ get "/:template_name/" do
     send_file Config::PAGE_404
   end
 end
-
 
 # Gif制作请求
 post "/:template_name/make" do
@@ -77,10 +81,6 @@ post "/make" do
   "<p>请刷新或清空浏览器缓存🍃</p>"
 end
 
-# 兼容旧版
-get "/index.html" do
-  redirect to('/sorry/')
-end
 
 # 404页面
 not_found do
