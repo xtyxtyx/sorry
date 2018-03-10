@@ -72,11 +72,14 @@ post "/api/:template_name/make" do
   msg
 end
 
-## TODO： make api
-
 # 兼容旧版
 post "/make" do
   "<p>请刷新或清空浏览器缓存🍃</p>"
+end
+
+# 兼容旧版
+get "/index.html" do
+  redirect to('/sorry/')
 end
 
 # 404页面
