@@ -3,6 +3,10 @@ require 'json'
 
 require_relative "./sorry/make_gif.rb"
 require_relative "./sorry/config.rb"
+require_relative "./sorry/check_deps.rb"
+
+# 检查依赖
+DepsChecker.check_all()
 
 # 默认跳转到sorry模板
 get "/" do
