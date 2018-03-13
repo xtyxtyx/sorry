@@ -32,7 +32,7 @@ module Sorry
 		video_path = Config::TEMPLATE_FOLDER + template_name + "/template.mp4"
 
 		cmd = <<-CMD
-			ffmpeg \
+			#{Config::FFMPEG_COMMAND} \
 			-i #{video_path} \
 			-r 8 \
 			-vf ass=#{ass_path},scale=300:-1 \

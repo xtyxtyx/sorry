@@ -20,3 +20,5 @@ temp_folder: temp/
 cache_folder: cache/
 
 max_jobs: 8
+
+ffmpeg_command: ffmpeg

@@ -5,7 +5,7 @@ module Config
 
     PAGE_INDEX         = config["page_index"]
     PAGE_404           = config["page_404"]
-    PAGE_INVALID      = config["page_invalid"]
+    PAGE_INVALID       = config["page_invalid"]
 
     TEMPLATE_FOLDER    = config["template_folder"]
 
@@ -18,4 +18,6 @@ module Config
     CACHE_FOLDER       = config["cache_folder"]
 
     MAX_JOBS           = config['max_jobs']
+
+    FFMPEG_COMMAND     = config['ffmpeg_command']
 end

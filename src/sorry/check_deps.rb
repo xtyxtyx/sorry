@@ -1,8 +1,10 @@
+require_relative "./config.rb"
+
 # 检查依赖的安装情况
 
 module DepsChecker
     def DepsChecker.check_ffmpeg
-        if system 'ffmpeg -version'
+        if system "#{Config::FFMPEG_COMMAND} -version"
             return
         end
 
