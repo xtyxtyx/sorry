@@ -113,7 +113,7 @@ crontab -e
 
 ```
 templates/<template_name>/template.mp4  # 视频模板
-templates/<template_name>/template.erb  # 字幕模板
+templates/<template_name>/template.ass  # 字幕模板
 public/<template_name>/example.png   # 展示图片
 public/<template_name>/index.html    # 模板主页
 ```
@@ -124,14 +124,12 @@ public/<template_name>/index.html    # 模板主页
 
 如果你不熟悉aegisub的使用，也可以只提供视频模板。如果你是github用户，可以发个issue， 也可以[发送邮件](mailto:xty50337@hotmail.com)
 
-## 制作字幕模板template.erb
-首先使用aegisub为模板视频创建字幕，保存为sorry.ass（aegisub教程可以看这个 https://tieba.baidu.com/p/1360405931 ）
+## 制作字幕模板template.ass
+首先使用aegisub为模板视频创建字幕，保存为template.ass（aegisub教程可以看这个 https://tieba.baidu.com/p/1360405931 ）
 ![图片](https://dn-coding-net-production-pp.qbox.me/56a213df-9ff7-41e0-9b6c-96b1f0fe2cb6.png)
 
 然后把文本替换成模板字符串 <%= sentences[n] %>
 ![图片](https://dn-coding-net-production-pp.qbox.me/6b07bc65-c3d7-4251-aad2-bd7b05af9102.png)
-
-最后保存为template.erb
 
 ## TODO
 
