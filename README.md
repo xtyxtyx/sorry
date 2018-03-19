@@ -108,7 +108,7 @@ crontab -e
 10  *  *   *   *     find /root/sorry/public/cache -name '*.gif' -mmin +700  -exec rm {} \;       
 ```
 
-## 添加模板
+## 添加GIF模板
 向网站中添加模板需要加入以下文件
 
 ```
