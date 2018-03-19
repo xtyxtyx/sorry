@@ -3,6 +3,7 @@ var show_sidebar_btn  = document.getElementById("show_sidebar")
 var sidebar_close_btn = document.getElementById("sidebar_close")
 var sidebar           = document.getElementById("sidebar")
 var result            = document.getElementById("result")
+var wechat_checkbox   = document.getElementById("wechat-checkbox")
 
 function make_body() {
     var body = {}
@@ -43,7 +44,13 @@ function submit() {
     };
 
     save_input()
-    xhttp.open("POST", "make", true);
+
+    if (wechat_checkbox && wechat_checkbox.checked) {
+        xhttp.open("POST", "wechat/make", true);
+    } else {
+        xhttp.open("POST", "make", true);        
+    }
+
     xhttp.send(make_body());
 }
 
@@ -78,6 +85,7 @@ function save_input() {
 function sidebar_open() {
     sidebar.style.display = "block";
 }
+
 function sidebar_close() {
     sidebar.style.display = "none";
 }
@@ -85,4 +93,5 @@ function sidebar_close() {
 submit_btn.onclick        = submit;
 show_sidebar_btn.onclick  = sidebar_open;
 sidebar_close_btn.onclick = sidebar_close;
+
 restore_input()

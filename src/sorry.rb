@@ -49,12 +49,27 @@ post "/:template_name/make" do
     i += 1
   end
 
-  path_of_template_dir = "public/#{template_name}/"
-  if ! Dir.exist?(path_of_template_dir)
+  path_to_template_dir = "public/#{template_name}/"
+  if ! Dir.exist?(path_to_template_dir)
     halt 404
   end
+  
+  Sorry.render_gif("templates/#{template_name}/", sentences)
+end
 
-  Sorry.render_gif(template_name, sentences)
+# Gif制作请求(微信兼容版)
+post "/sorry/wechat/make" do
+  template_name = "sorry"
+
+  body = JSON.parse(request.body.read)
+  sentences = []
+  i = 0
+  while sentence = body[i.to_s]
+    sentences[i] = sentence
+    i += 1
+  end
+  
+  Sorry.render_gif("templates/sorry/wechat/", sentences)
 end
 
 # API
@@ -69,14 +84,14 @@ post "/api/:template_name/make" do
     i += 1
   end
 
-  path_of_template_dir = "public/#{template_name}/"
-  if ! Dir.exist?(path_of_template_dir)
+  path_to_template_dir = "public/#{template_name}/"
+  if ! Dir.exist?(path_to_template_dir)
     halt 404
   end
 
-  status_code, msg = Sorry.render_gif_api(template_name, sentences)
+  status_code, msg = Sorry.render_gif_api("templates/#{template_name}/", sentences)
 
-  status status_code
+  status(status_code)
   msg
 end
 
