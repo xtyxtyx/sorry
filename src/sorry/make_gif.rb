@@ -84,7 +84,7 @@ module Sorry
 
 		if !$cache.file_exists?(gif_file)
 			if ffmpeg_avaliable?
-				path = make_gif_with_ffmpeg(template_name, sentences, gif_file)
+				path = make_gif_with_ffmpeg(template_dir, sentences, gif_file)
 				$cache.add_file(path)
 				File.delete(path)
 			else
