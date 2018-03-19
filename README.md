@@ -13,7 +13,10 @@
 ├── src                     # 这里就是源代码
 └── temp                    # 把临时文件安放在这里
 ```
-另有[python版](https://github.com/East196/sorrypy)，由@East196编写
+另有
+- [python版](https://github.com/East196/sorrypy)，由@East196编写
+- [java版](https://github.com/li24361/sorryJava)，由@li24361编写
+- [安卓App](https://www.coolapk.com/apk/180333)，由@ImmortalZ编写
 ## API
 
 制作GIF：
