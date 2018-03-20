@@ -38,6 +38,29 @@ POST https://sorry.xuty.tk/api/<template_name>/make
 - sorry
 - wangjingze
 
+## 常用特效代码
+```
+咕咕{\i1}{\fs40}咕咕咕{\r}咕
+```
+![示例](https://dn-coding-net-production-pp.qbox.me/2d664d1c-c691-42ae-a02c-0687f6fa17d2.png)
+```
+\n 折行
+\h 空格
+
+{\i1} 斜体
+{\i0} 取消斜体
+
+{\b1} 粗体
+{\b0} 取消粗体
+
+{\u1} 下划线
+{\u0} 取消下划线
+
+{\fs60} 调整字号
+
+{\r} 重置所有特效
+```
+
 ## 部署指南
 
 ### 使用Docker
