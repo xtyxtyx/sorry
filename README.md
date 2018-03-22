@@ -63,7 +63,12 @@ POST https://sorry.xuty.tk/api/<template_name>/make
 
 ## 部署指南
 
-### 使用Docker
+### 使用Docker镜像快速启动
+```
+docker run -d -p 4567:4567 daocloud.io/sorry/gif:master
+```
+
+### 自行构建Docker Image启动
 ```
 docker build -t sorry .
 docker run --rm -it -p 4567:4567 sorry
@@ -82,7 +87,7 @@ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 
 # [可选] Linux服务器一般需要安装中文字体
 apt install language-pack-zh-hans
-apt install ttf-wqy-microhei 
+apt install ttf-wqy-microhei
 
 # 安装编译依赖
 apt install ruby-dev build-essential
