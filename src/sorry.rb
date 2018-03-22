@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'json'
+require 'erb'
 
 require_relative "./sorry/make_gif.rb"
 require_relative "./sorry/config.rb"
@@ -28,13 +29,14 @@ end
 # 模板主页
 get "/:template_name/" do
   template_name = params['template_name']
-  path_to_file = "public/#{template_name}/index.html"
+  path_to_file = "views/#{template_name}.erb"
 
   if File.exist?(path_to_file)
-    send_file path_to_file
+    erb params['template_name'].to_sym    
   else
     send_file Config::PAGE_404
   end
+
 end
 
 # Gif制作请求
@@ -49,7 +51,7 @@ post "/:template_name/make" do
     i += 1
   end
 
-  path_to_template_dir = "public/#{template_name}/"
+  path_to_template_dir = "templates/#{template_name}/"
   if ! Dir.exist?(path_to_template_dir)
     halt 404
   end
@@ -119,3 +121,6 @@ set :public_folder, Dir.pwd + '/public'
 # 设置监听地址
 set :port, Config::SERVER_PORT
 set :bind, Config::SERVER_IP
+
+# 设置网页模板目录
+set :views, Dir.pwd + '/views'
