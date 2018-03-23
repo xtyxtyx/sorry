@@ -24,15 +24,16 @@
 
 {\r} 重置所有特效
 ```
-## 代码库
+## 源代码库
 
 ```
 ├── Gemfile
 ├── Gemfile.lock
 ├── LICENSE
 ├── public                  # 静态文件目录
+├── views                   # 主页目录
+├── templates               # 模板目录
 ├── README.md
-├── resource                # 模板文件目录，里边存放用于生成gif的文件
 ├── site_config.yml         # 站点配置文件
 ├── src                     # 这里就是源代码
 └── temp                    # 把临时文件安放在这里
@@ -140,10 +141,10 @@ crontab -e
 templates/<template_name>/template.mp4  # 视频模板
 templates/<template_name>/template.ass  # 字幕模板
 public/<template_name>/example.png   # 展示图片
-public/<template_name>/index.html    # 模板主页
+views/<template_name>.erb    # 模板主页
 ```
 
-其中`index.html` 参考其他模板主页，增减`<input>`的数量即可
+其中`index.erb` 参考其他模板主页，增减`<input>`的数量即可
 
 然后发个Pull request
 
