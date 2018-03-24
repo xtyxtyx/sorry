@@ -1,11 +1,9 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://gems.ruby-china.org/
   specs:
-    concurrent-ruby (1.0.5)
     daemons (1.2.6)
     eventmachine (1.2.5)
     mustermann (1.0.2)
-    psych (3.0.2)
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
@@ -24,8 +22,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  concurrent-ruby
-  psych
   sinatra
   thin
 
