@@ -59,12 +59,14 @@ POST https://sorry.xuty.tk/api/<template_name>/make
 -> 503
 ```
 目前支持的template_name有：
+```
 - sorry
 - wangjingze
 - jinkela        # 金坷垃
 - marmot         # 土拨鼠
 - dagong         # 窃格瓦拉
 - diandongche    # 窃格瓦拉偷电动车
+```
 
 ## 部署指南
 
@@ -169,6 +171,6 @@ views/<template_name>.erb    # 模板主页
 
 ## 服务器
 
-[Cloudcone](https://app.cloudcone.com/?ref=940) sorry.xuty.tk部署在Cloudcone上
-[Vultr](https://www.vultr.com/?ref=7019614) 最低2.5$/月
-[DigitalOcean 注册送10美金](https://m.do.co/c/67a58d6cf3da)
+- [Cloudcone](https://app.cloudcone.com/?ref=940) sorry.xuty.tk部署在Cloudcone上
+- [Vultr 最低2.5$/月](https://www.vultr.com/?ref=7019614)
+- [DigitalOcean 注册送10美金](https://m.do.co/c/67a58d6cf3da)
