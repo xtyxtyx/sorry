@@ -41,7 +41,6 @@
 另有
 - [python版](https://github.com/East196/sorrypy)，由@East196编写
 - [java版](https://github.com/li24361/sorryJava)，由@li24361编写
-- [安卓App](https://www.coolapk.com/apk/180333)，由@ImmortalZ编写
 ## API
 
 制作GIF：
@@ -62,7 +61,10 @@ POST https://sorry.xuty.tk/api/<template_name>/make
 目前支持的template_name有：
 - sorry
 - wangjingze
-
+- jinkela        # 金坷垃
+- marmot         # 土拨鼠
+- dagong         # 窃格瓦拉
+- diandongche    # 窃格瓦拉偷电动车
 
 ## 部署指南
 
@@ -84,7 +86,6 @@ gem install bundler
 gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
 
 # [可选] Linux服务器一般需要安装中文字体
-apt install language-pack-zh-hans
 apt install ttf-wqy-microhei 
 
 # 安装编译依赖
@@ -165,3 +166,9 @@ views/<template_name>.erb    # 模板主页
 - [x] 定时删除缓存，不然有多少硬盘空间也不够用
 - [ ] 写个脚本，自动配置新的gif
 - [ ] 写测试
+
+## 服务器
+
+[Cloudcone](https://app.cloudcone.com/?ref=940) sorry.xuty.tk部署在Cloudcone上
+[Vultr](https://www.vultr.com/?ref=7019614) 最低2.5$/月
+[DigitalOcean 注册送10美金](https://m.do.co/c/67a58d6cf3da)
