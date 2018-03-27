@@ -41,6 +41,8 @@
 另有
 - [python版](https://github.com/East196/sorrypy)，由@East196编写
 - [java版](https://github.com/li24361/sorryJava)，由@li24361编写
+- [nodejs版](https://github.com/q809198545/node-sorry)，由@q809198545编写
+- [C# ASP.NET版](https://github.com/shuangrain/SorryNet)，由@shuangrain编写
 ## API
 
 制作GIF：
