@@ -3,6 +3,7 @@
 
 [V2EX](https://www.v2ex.com/t/431802)
 ## 常用特效代码
+出现在句子中的特效代码会对其后的字符产生影响
 ```
 咕咕{\i1}{\fs40}咕咕咕{\r}咕
 ```
@@ -21,6 +22,8 @@
 {\u0} 取消下划线
 
 {\fs60} 调整字号
+
+{\fad(100,200)} 100ms淡入，200ms淡出
 
 {\r} 重置所有特效
 ```
@@ -44,6 +47,8 @@
 - [nodejs版](https://github.com/q809198545/node-sorry)，由@q809198545编写
 - [C# ASP.NET版](https://github.com/shuangrain/SorryNet)，由@shuangrain编写
 - [微信小程序](https://github.com/CoXier/iemoji-wechat)，由@CoXier编写
+- [nodejs版(使用Drawtext filter渲染)](https://github.com/SnailDev/SnailDev.GifMaker)，由@SnailDev编写
+- [网页版(使用Canvas渲染)](https://coding.net/u/hhhhhg/p/wjzGif-JavaScript/git)，由@hhhhhg编写
 ## API
 
 制作GIF：
