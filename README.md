@@ -49,6 +49,7 @@
 - [微信小程序](https://github.com/CoXier/iemoji-wechat)，由@CoXier编写
 - [nodejs版(使用Drawtext filter渲染)](https://github.com/SnailDev/SnailDev.GifMaker)，由@SnailDev编写
 - [网页版(使用Canvas渲染)](https://coding.net/u/hhhhhg/p/wjzGif-JavaScript/git)，由@hhhhhg编写
+- [PHP版](https://github.com/PrintNow/php-sorry-gif)，由@PrintNow编写
 ## API
 
 制作GIF：
