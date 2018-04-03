@@ -1,5 +1,9 @@
-var btn    = document.getElementById("submit_btn")
-var result = document.getElementById("result")
+var submit_btn        = document.getElementById("submit_btn")
+var show_sidebar_btn  = document.getElementById("show_sidebar")
+var sidebar_close_btn = document.getElementById("sidebar_close")
+var sidebar           = document.getElementById("sidebar")
+var result            = document.getElementById("result")
+var wechat_checkbox   = document.getElementById("wechat-checkbox")
 
 function make_body() {
     var body = {}
@@ -20,28 +24,33 @@ function calculate_duration(begin_time) {
 }
 
 function submit() {
-    btn.disabled = true;
-    btn.innerHTML = "请稍候"
+    submit_btn.disabled = true;
+    submit_btn.innerHTML = "请稍候"
 
     var begin_time = Date.now();
 
     var xhttp = new XMLHttpRequest();
-    xhttp.timeout = 3 * 1000;
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4) {
-            if (this.status == 200) {
-                result.innerHTML = this.responseText;
+            if (this.status == 521 || this.status == 404) {
+                result.innerHTML = "<p>请求出错！😵</p>";
             } else {
-                result.innerHTML = "<p>请求出错！❌</p>";
+                result.innerHTML = this.responseText;
             }
-            btn.innerHTML = "生成";
-            btn.disabled = false;
+            submit_btn.innerHTML = "生成";
+            submit_btn.disabled = false;
         }
     };
 
     save_input()
-    xhttp.open("POST", "/make", true);
+
+    if (wechat_checkbox && wechat_checkbox.checked) {
+        xhttp.open("POST", "wechat/make", true);
+    } else {
+        xhttp.open("POST", "make", true);        
+    }
+
     xhttp.send(make_body());
 }
 
@@ -73,5 +82,16 @@ function save_input() {
     docCookies.setItem("input", JSON.stringify(obj));
 }
 
-btn.onclick = submit;
+function sidebar_open() {
+    sidebar.style.display = "block";
+}
+
+function sidebar_close() {
+    sidebar.style.display = "none";
+}
+
+submit_btn.onclick        = submit;
+show_sidebar_btn.onclick  = sidebar_open;
+sidebar_close_btn.onclick = sidebar_close;
+
 restore_input()

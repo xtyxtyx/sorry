@@ -9,65 +9,62 @@ module Sorry
 
 	$cache = LocalCache.new
 
-	def Sorry.calculate_hash(sentences)
-		Digest::MD5.hexdigest sentences.to_s
-	end
-
-	######################
-
 	$jobs  = 0
 	$mutex = Mutex.new
+
+	def Sorry.calculate_hash(template_dir,sentences)
+		Digest::MD5.hexdigest(template_dir + sentences.to_s)
+	end
 
 	def Sorry.ffmpeg_avaliable?
 		$jobs < Config::MAX_JOBS
 	end
 
-	def Sorry.make_gif_with_ffmpeg(sentences, filename)
+	def Sorry.make_gif_with_ffmpeg(template_dir, sentences, filename)
 		$mutex.lock
 			$jobs += 1
 		$mutex.unlock
 
-		ass_path = render_ass(sentences, filename)
-		path =  Config::TEMP_FOLDER + filename
+		gif_path   = "temp/" + filename
+		ass_path   = render_ass(template_dir, sentences, filename)
+		video_path = template_dir + "template.mp4"
 
 		cmd = <<-CMD
-			ffmpeg \
-			-i #{Config::TEMPLATE_VIDEO} \
-			-r 6 \
-			-vf ass=#{ass_path},scale=300:-1 \
-			-y \
-			#{path}
+			#{Config::FFMPEG_COMMAND} -i #{video_path} \
+			-vf ass=#{ass_path} -y #{gif_path}
 		CMD
 
 		pid = spawn(cmd, [:out, :err]=>"/dev/null")
-		Process.wait pid
+		Process.wait(pid)
 
+		gif_path		
+	ensure
 		$mutex.lock
 			$jobs -= 1
 		$mutex.unlock
 		puts "[ Current jobs ] #{$jobs}"
-
-		path
 	end
 
-	################################
-
-	def Sorry.render_ass(sentences, filename)
-		path = Config::TEMP_FOLDER + filename + ".ass"
-
-		ass_text = ERB.new(File.read Config::TEMPLATE_SUBTITLE).result binding
-
-		File.write(path, ass_text)
-
-		path
+	def Sorry.ass_text(template_dir)
+		File.read(template_dir + "template.ass")
 	end
 
-	def render_gif(sentences)
-		filename = calculate_hash(sentences) + ".gif"
+	def Sorry.render_ass(template_dir, sentences, filename)
+		output_file_path = "temp/" + filename + ".ass"
 
-		if !$cache.file_exists?(filename)
+		rendered_ass_text = ERB.new(ass_text(template_dir)).result(binding)
+
+		File.write(output_file_path, rendered_ass_text)
+
+		output_file_path
+	end
+
+	def render_gif(template_dir, sentences)
+		gif_file = calculate_hash(template_dir, sentences) + ".gif"
+
+		if !$cache.file_exists?(gif_file)
 			if ffmpeg_avaliable?
-				path = make_gif_with_ffmpeg(sentences, filename)
+				path = make_gif_with_ffmpeg(template_dir, sentences, gif_file)
 				$cache.add_file(path)
 				File.delete(path)
 			else
@@ -78,9 +75,27 @@ module Sorry
 		end
 
 		<<-HTML
-		<p><a href="#{$cache.get_url(filename)}" target="_blank"><p>点击下载</p></a></p>
+		<p><a href="#{$cache.get_url(gif_file)}" target="_blank"><p>点击下载</p></a></p>
 		HTML
 	end
 
+	def render_gif_api(template_dir, sentences)
+		gif_file = calculate_hash(template_dir, sentences) + ".gif"
+
+		if !$cache.file_exists?(gif_file)
+			if ffmpeg_avaliable?
+				path = make_gif_with_ffmpeg(template_dir, sentences, gif_file)
+				$cache.add_file(path)
+				File.delete(path)
+			else
+				return 503, ""
+			end
+		end
+
+		return 200, $cache.get_url(gif_file)
+	end
+
+
 	module_function :render_gif
+	module_function :render_gif_api
 end
