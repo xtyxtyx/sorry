@@ -86,7 +86,7 @@ post "/api/:template_name/make" do
     i += 1
   end
 
-  path_to_template_dir = "public/#{template_name}/"
+  path_to_template_dir = "templates/#{template_name}/"
   if ! Dir.exist?(path_to_template_dir)
     halt 404
   end
