@@ -79,11 +79,15 @@ post "/api/:template_name/make" do
   template_name = params['template_name']
 
   body = JSON.parse(request.body.read)
-  sentences = []
-  i = 0
-  while sentence = body[i.to_s]
-    sentences[i] = sentence
-    i += 1
+  if body.is_a?(Array)
+    sentences = body
+  else
+    sentences = []
+    i = 0
+    while sentence = body[i.to_s]
+      sentences[i] = sentence
+      i += 1
+    end
   end
 
   path_to_template_dir = "templates/#{template_name}/"
