@@ -52,6 +52,7 @@
 - [PHP版](https://github.com/PrintNow/php-sorry-gif)，由@PrintNow编写
 - [Golang版](https://github.com/Hentioe/sorry-generator)，由@Hentioe编写
 - [AlfredWork版](https://github.com/BlackDragonF/AlfredWorkflows)，由@BlackDragonF编写
+- [VuePress版](https://github.com/fritx/SorryPress)，由@fritx编写
 
 ## API
 
