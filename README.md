@@ -51,7 +51,9 @@
 - [网页版(使用Canvas渲染)](https://coding.net/u/hhhhhg/p/wjzGif-JavaScript/git)，由@hhhhhg编写
 - [PHP版](https://github.com/PrintNow/php-sorry-gif)，由@PrintNow编写
 - [Golang版](https://github.com/Hentioe/sorry-generator)，由@Hentioe编写
+- [AlfredWork版](https://github.com/BlackDragonF/AlfredWorkflows)，由@BlackDragonF编写
 - [nodejs版(使用koa2)](https://github.com/wadejs/sorry-template)，由@wadejs编写
+
 ## API
 
 制作GIF：
