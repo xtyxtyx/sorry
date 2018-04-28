@@ -53,6 +53,7 @@
 - [Golang版](https://github.com/Hentioe/sorry-generator)，由@Hentioe编写
 - [AlfredWork版](https://github.com/BlackDragonF/AlfredWorkflows)，由@BlackDragonF编写
 - [nodejs版(使用koa2)](https://github.com/wadejs/sorry-template)，由@wadejs编写
+- [VuePress版](https://github.com/fritx/SorryPress)，由@fritx编写
 
 ## API
 
