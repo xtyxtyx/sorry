@@ -100,7 +100,7 @@ docker run --rm -it -p 4567:4567 sorry
 gem install bundler
 
 # [可选] 使用国内镜像
-gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
 
 # [可选] Linux服务器一般需要安装中文字体
 apt install ttf-wqy-microhei 
