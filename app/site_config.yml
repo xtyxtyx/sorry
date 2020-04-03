@@ -1,0 +1,9 @@
+page_404:     public/404.html
+page_invalid: public/invalid.html
+
+server_ip:   0.0.0.0
+server_port: 4567
+
+max_jobs: 8
+
+ffmpeg_command: ffmpeg

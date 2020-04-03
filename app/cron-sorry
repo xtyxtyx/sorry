@@ -1,0 +1,1 @@
+10 * * * * find /app/public/cache -name '*.gif' -mmin +700  -exec rm {} \;
