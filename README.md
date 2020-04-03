@@ -87,8 +87,13 @@ POST https://sorry.xuty.tk/api/<template_name>/make
 
 ### 使用Docker
 ```
-docker build -t sorry .
+docker build -t sorry ./app
 docker run --rm -it -p 4567:4567 sorry
+```
+
+### docker-compose 一键启动
+```
+docker-compose up
 ```
 
 ### 手工部署
@@ -96,6 +101,8 @@ docker run --rm -it -p 4567:4567 sorry
 
 接下来：
 ```bash
+cd ./app
+
 # 安装bundler
 gem install bundler
 

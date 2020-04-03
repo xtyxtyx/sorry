@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  sorry:
+    build: app
+    restart: always
+    ports:
+      - 127.0.0.1:4567:4567
+    volumes:
+      - ./temp:/app/temp
+    environment:
+      APP_ENV: production
+      LANG: UTF-8 
