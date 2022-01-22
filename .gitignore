@@ -8,3 +8,5 @@ err-0.log
 temp/*.ass
 *~
 *#
+
+!media/*
