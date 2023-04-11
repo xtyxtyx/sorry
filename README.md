@@ -2,6 +2,13 @@
 ![图片](https://raw.githubusercontent.com/xtyxtyx/sorry/master/media/1.gif)
 
 [V2EX](https://www.v2ex.com/t/431802)
+
+## 微信小程序试用
+小程序在 2019 年因为「内容安全」被下线了，2023.4 刚申诉上线，大家可以扫码试用一下。
+
+![图片](https://github.com/xtyxtyx/sorry/blob/master/media/gh_b404536005f9_258.jpg)
+
+
 ## 常用特效代码
 出现在句子中的特效代码会对其后的字符产生影响
 ```
