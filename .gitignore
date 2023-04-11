@@ -5,4 +5,8 @@
 out-0.log
 err-0.log
 *.gif
-*.ass
+temp/*.ass
+*~
+*#
+
+!media/*
